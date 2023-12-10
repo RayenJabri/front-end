@@ -1,0 +1,46 @@
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Produit en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+        </form>   
+    
+
+
+
+    <!-- <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Boisson en tapant</label>
+        <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        </div>
+        </form> -->
+
+
+   <!--  <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Boisson</label>
+        <input type="text" class="form-control" [(ngModel)]="nomBoisson" name="nomBoisson" class="form-control">
+        <button type="submit" (click)="rechercherbois()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+        </div>
+        </form> -->
+   
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom de boisson</th> <th>Prix de Boisson</th> <th>Type</th> </tr>
+    <tbody *ngFor="let boisson of boissons | searchFilter: searchTerm   ">
+    <tr >
+        <td>{{boisson.idBoisson}}</td>
+        <td>{{boisson.nomBoisson}}</td>
+        <td>{{boisson.prixBoisson}}</td>
+        <td>{{boisson.type?.nomType}}</td>
+
+</tr>
+    </tbody>
+
+    </table>
+    </div>
+    </div>
+
+    

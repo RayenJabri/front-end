@@ -1,0 +1,35 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Boisson :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Boisson</label>
+    <input  readonly type="text" [(ngModel)]="currentBoisson.idBoisson"
+    name="idboisson" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Boisson</label>
+    <input type="text"[(ngModel)]= "currentBoisson.nomBoisson"
+    name="nomBoisson" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix Boisson</label>
+    <input type="number" [(ngModel)]= "currentBoisson.prixBoisson"
+    name="prixBoisson" class="form-control">
+    </div>
+    
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Type De Boisson</label>
+    <select class="form-control form-control-lg" id="idType" name="idCat"
+    [(ngModel)]="updatedtyid">
+    <option *ngFor="let t of types" [value]="t.idType" >
+    {{t.nomType}}
+    </option>
+    </select>
+    </div>
+<div class="mt-2">
+<button type="submit" (click)="updateBoisson()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>

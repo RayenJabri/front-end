@@ -1,0 +1,33 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un Boisson :</h2>
+    </div>
+    <form >
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID Boisson</label>
+        <input type="text" [(ngModel)]="newBoisson.idBoisson"
+        name="idBoisson" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Nom Boisson</label>
+        <input type="text"[(ngModel)]= "newBoisson.nomBoisson"
+        name="nomBoisson" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Prix Boisson</label>
+        <input type="number" [(ngModel)]= "newBoisson.prixBoisson"
+        name="prixBoisson" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Type</label>
+            <select class="form-control form-control-lg" id="idtype" name="idtype"[(ngModel)]="newIdtype">
+             <option *ngFor="let ty of types" [value]="ty.idType" >
+             {{ty.nomType}}
+            </option>
+            </select>
+            </div>
+        <div class="mt-2">
+        <button type="submit" (click)="addBoisson()"class="btn btn-success">Ajouter</button>
+        </div>
+        </form>
+        </div>

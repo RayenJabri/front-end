@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id Boisson</th><th>Nom de Boisson</th> <th>Prix de Boisson</th>  <th> Type </th> </tr>
+    <tbody *ngFor="let boisson of boissons">
+    <tr >
+    <td>{{boisson.idBoisson}}</td>
+    <td>{{boisson.nomBoisson}}</td>
+    <td>{{boisson.prixBoisson}}</td>
+    <td>{{boisson.type?.nomType}}</td>
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerBoisson(boisson)">Supprimer</a></td>
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateBoisson',boisson.idBoisson]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
