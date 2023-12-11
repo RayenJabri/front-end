@@ -13,7 +13,7 @@ export class RechercheParTypeComponent {
   boissons! : Boisson[];
   IdType! : number;
   types! : Type[];
-searchTerm: any;
+  searchTerm: any;
   constructor(private boissonService: BoissonService, 
     public authService: AuthService){}
 
