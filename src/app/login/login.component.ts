@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   user = new User();
-
+  message:string="login ou mot de passe erronés..";
   err:number = 0;
 
   constructor(private authService : AuthService,
@@ -25,6 +25,8 @@ this.router.navigate(['/']);
 },
 error: (err: any) => {
 this.err = 1;
+if (err.error.errorCause=='disabled')
+this.message="Utilisateur désactivé, Veuillez contacter votre Administrateur";
 }
 });
 }

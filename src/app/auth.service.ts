@@ -12,11 +12,17 @@ export class AuthService {
 public loggedUser!:string; 
 public isloggedIn: Boolean = false;
 public roles!:string[];
-
+public regitredUser : User = new User();
 apiURL: string = 'http://localhost:8081/users';
 token!:string;
 constructor(private router: Router,
 private http : HttpClient) { }
+setRegistredUser(user : User){
+  this.regitredUser=user;
+  }
+  getRegistredUser(){
+  return this.regitredUser;
+  }
 login(user : User)
 {
 return this.http.post<User>(this.apiURL+'/login', user , {observe:'response'});
@@ -70,5 +76,11 @@ setLoggedUserFromLocalStorage(login : string) {
   this.isloggedIn = true;
   // this.getUserRoles(login);
    }
- 
+   registerUser(user :User){
+    return this.http.post<User>(this.apiURL+'/register', user,
+    {observe:'response'});
+    }
+    validateEmail(code : string){
+      return this.http.get<User>(this.apiURL+'/verifyEmail/'+code);
+      } 
 }
