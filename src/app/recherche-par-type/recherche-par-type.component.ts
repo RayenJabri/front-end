@@ -25,7 +25,7 @@ export class RechercheParTypeComponent {
     
 
 onchange(){
-  this.boissonService.rechercheParType(this.IdType).
+  this.boissonService.rechercherParType(this.IdType).
   subscribe(b =>{this.boissons=b});
 }
 }

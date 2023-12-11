@@ -26,10 +26,10 @@ export class BoissonService {
         return this.http.post<Type>(this.apiURLType, t, httpOptions);
         }
        
-    listetypes():Observable<TypeWrapper>{
+     listetypes():Observable<TypeWrapper>{
       let jwt = this.authService.getToken();
-jwt = "Bearer "+jwt;
-let httpHeaders = new HttpHeaders({"Authorization":jwt})
+      jwt = "Bearer "+jwt;
+      let httpHeaders = new HttpHeaders({"Authorization":jwt})
       return this.http.get<TypeWrapper>(this.apiURLType,{headers:httpHeaders});
       }
 
@@ -80,10 +80,12 @@ let httpHeaders = new HttpHeaders({"Authorization":jwt})
 
     
   
-     rechercheParType( id:number):Observable< Boisson[]> {
-      const url = `${this.apiURL}/boissontype/${id}`;
-      return this.http.get<Boisson[]>(url);
-
-     }
-     
+    
+     rechercherParType(IdType: number): Observable<Boisson[]> {
+      const url = `${this.apiURL}/boissontype/${IdType}`;
+      let jwt = this.authService.getToken();
+            jwt = "Bearer "+jwt;
+            let httpHeaders = new HttpHeaders({"Authorization":jwt})
+      return this.http.get<Boisson[]>(url, {headers:httpHeaders});
+      } 
 }
